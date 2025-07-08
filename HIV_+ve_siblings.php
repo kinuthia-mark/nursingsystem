@@ -39,6 +39,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<div style='color: red; text-align: center;'>Please fill in all fields.</div>";
     }
 }
+
+//include sweet alert library
+    echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
+    echo '<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        Swal.fire({
+            title: "Admission Examination",
+            text: "Please fill out the form carefully.",
+            icon: "info",
+            confirmButtonText: "Got it!",
+            customClass: {
+                popup: "swal-popup",
+                title: "swal-title",
+                content: "swal-content",
+                confirmButton: "swal-confirm-button"
+            }
+        });
+    });
+    </script>';
+// Close the database connection
+
 ?>
 <!DOCTYPE html>
 <head>

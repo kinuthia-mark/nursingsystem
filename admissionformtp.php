@@ -66,10 +66,7 @@ ini_set('display_errors', 1);
         $birth_order, $no_of_siblings, $no_of_hiv_positive, $no_of_hiv_negative, $child_life_status,
         $present_caretaker, $age_of_death, $cause_of_death, $date_of_death, $child_left
     );
-
-
-
-
+    
     // Execute the prepared statement
 
     if ($stmt->execute()) {
@@ -82,6 +79,26 @@ ini_set('display_errors', 1);
     $conn->close();
 }
 // End of form submission handling
+
+//include sweet alert library
+    echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
+    echo '<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        Swal.fire({
+            title: "Admission Examination",
+            text: "Please fill out the form carefully.",
+            icon: "info",
+            confirmButtonText: "Got it!",
+            customClass: {
+                popup: "swal-popup",
+                title: "swal-title",
+                content: "swal-content",
+                confirmButton: "swal-confirm-button"
+            }
+        });
+    });
+    </script>';
+
 
 ?>
 
@@ -190,7 +207,7 @@ ini_set('display_errors', 1);
 
     <body>
         <form action="admissionformtp.php" method="post">
-            <section>
+        <section>
                 <h1 class="login-title">Admission form</h1>
         
                 <label for="family_name">Family Name:</label>
@@ -229,7 +246,10 @@ ini_set('display_errors', 1);
                     <input type="number" id="age_of_admission" name="age_of_admission" min="0" placeholder="Age at admission" required style="flex:1;">
                     <button type="button" onclick="calculateAgeAtAdmission()" style="background-color: rgb(1, 183, 255); color: rgb(5, 5, 5); border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-left: 10px;">Calculate Age</button>
                 </div>
+                
                 <div id="age_approx_info" style="color: #015e6b; margin-bottom: 16px; font-size: 0.95em;"></div>
+                    
+                    <label for="weight_on_admission">Weight on Admission (kg):</label>
                     <input type="number" id="weight_on_admission" name="weight_on_admission" step="0.01" placeholder="Enter weight on admission" required>
 
                     <label for="referral_source">Referral Source:</label>
@@ -243,6 +263,7 @@ ini_set('display_errors', 1);
                         <option value="">Select</option>
                         <option value="alive">Alive</option>
                         <option value="deceased">Deceased</option>
+                        <option value="unknown">Unknown</option>
                     </select>
 
                     <label for="mother_hiv_status">HIV Status of the Mother:</label>
@@ -261,6 +282,7 @@ ini_set('display_errors', 1);
                         <option value="">Select</option>
                         <option value="alive">Alive</option>
                         <option value="deceased">Deceased</option>
+                        <option value="unknown">Unknown</option>
                     </select>
 
                     <label for="father_hiv_status">HIV Status of the Father:</label>
@@ -292,9 +314,8 @@ ini_set('display_errors', 1);
 
                     <label for="present_caretaker">Present Care Taker:</label>
                     <input type="text" id="present_caretaker" name="present_caretaker" placeholder="Enter present care taker" required>
-                    <button type="submit" style="background-color: rgb(1, 183, 255); color: rgb(5, 5, 5);">Submit</button>
-                </section>
-
+                    
+        
                 <section id="deceasedFields" style="display:none;">
                     <h1 class="login-title">If Child is Deceased</h1>
                     <label for="age_of_death">Age of Death (years):</label>
@@ -313,7 +334,9 @@ ini_set('display_errors', 1);
                     <label for="child_left_no">No</label>
                 </section>
 
-                            </section>
+                            
+                        <button type="submit" style="background-color: rgb(1, 183, 255); color: rgb(5, 5, 5);">Submit</button>
+            </section>
                         </form>
                 
                         <script>
