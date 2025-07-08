@@ -10,17 +10,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sss", $vaccine_no, $vaccine, $date_given);
 
     if ($stmt->execute()) {
-        echo "✅ Vaccination record saved successfully.";
+        echo "<p style='color: green;'>✅ Vaccination record saved successfully.</p>";
     } else {
-        echo "❌ Error: " . $stmt->error;
+        echo "<p style='color: red;'>❌ Error: " . $stmt->error . "</p>";
     }
 
     $stmt->close();
-    $conn->close();
-} 
+}
 
+// ✅ Get vaccine list from DB
+$vaccineOptions = "";
+$result = $conn->query("SELECT vaccine_name FROM vaccine_list ORDER BY vaccine_name ASC");
+while ($row = $result->fetch_assoc()) {
+    $vaccine = htmlspecialchars($row['vaccine_name']);
+    $vaccineOptions .= "<option value=\"$vaccine\">$vaccine</option>";
+}
+$conn->close();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +65,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     input[type="text"],
-    input[type="date"] {
+    input[type="date"],
+    select {
       width: 100%;
       padding: 10px;
       border-radius: 6px;
@@ -81,12 +88,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     button:hover {
       background-color: #0056b3;
     }
+
+    .top-right-link {
+      text-align: right;
+      margin-bottom: 10px;
+    }
+
+    .top-right-link a {
+      font-size: 14px;
+      text-decoration: none;
+      color: #007BFF;
+    }
+
+    .top-right-link a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
 
 <div class="form-container">
   <h2>Vaccination Form</h2>
+
+  <div class="top-right-link">
+    <a href="add_vaccine.php" target="_blank">➕ Add New Vaccine</a>
+  </div>
+
   <form action="vaccination.php" method="post">
     <div class="form-group">
       <label for="vaccine_no">Vaccine No</label>
@@ -95,7 +122,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class="form-group">
       <label for="vaccine">Vaccine</label>
-      <input type="text" id="vaccine" name="vaccine" required>
+      <select id="vaccine" name="vaccine" required>
+        <option value="">-- Select Vaccine --</option>
+        <?= $vaccineOptions ?>
+      </select>
     </div>
 
     <div class="form-group">
