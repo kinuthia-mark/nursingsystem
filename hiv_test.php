@@ -103,10 +103,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="age">Age</label>
         <input type="number" id="age" name="age" required>
       </div>
-
       <div class="form-group">
         <label for="result">Result</label>
-        <input type="text" id="result" name="result" placeholder="Positive / Negative" required>
+        <select id="result" name="result" required>
+          <option value="">Select Result</option>
+          <option value="Positive">Positive</option>
+          <option value="Negative">Negative</option>
+          <option value="unknown">Unknown</option>
+        </select> 
       </div>
 
       <div class="form-group">
