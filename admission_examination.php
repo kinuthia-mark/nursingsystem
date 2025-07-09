@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php include 'head.php'; ?>
 <body>
 
-    <h2>GENERAL EXAMINATION</h2>
+
 
     <div class="form-container">
   <form method="POST" action="">
