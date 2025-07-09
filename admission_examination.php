@@ -96,12 +96,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 ?>
 
+
 <!DOCTYPE html>
-<html lang="en">
 <?php include 'head.php'; ?>
 <body>
 
-    <h2>GENERAL EXAMINATION</h2>
+
 
     <div class="form-container">
   <form method="POST" action="">
