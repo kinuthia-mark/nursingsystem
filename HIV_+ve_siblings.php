@@ -41,151 +41,67 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 //include sweet alert library
-    echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
-    echo '<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        Swal.fire({
-            title: "Admission Examination",
-            text: "Please fill out the form carefully.",
-            icon: "info",
-            confirmButtonText: "Got it!",
-            customClass: {
-                popup: "swal-popup",
-                title: "swal-title",
-                content: "swal-content",
-                confirmButton: "swal-confirm-button"
-            }
-        });
-    });
-    </script>';
+ //   echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
+   // echo '<script>
+    //document.addEventListener("DOMContentLoaded", function() {
+     //   Swal.fire({
+      //      title: "Admission Examination",
+      //      text: "Please fill out the form carefully.",
+      //      icon: "info",
+      //      confirmButtonText: "Got it!",
+       //    customClass: {
+        //        popup: "swal-popup",
+       //         title: "swal-title",
+       //         content: "swal-content",
+       //         confirmButton: "swal-confirm-button"
+       //     }
+      //  });
+  //  });
+ //   </script>';
 // Close the database connection
 
 ?>
 <!DOCTYPE html>
-<head>
-    <title>HIV +ve siblings</title>
-<style>
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            background: #eafcff;
-        }
-        form {
-            width: 90vw;
-            max-width: 900px;
-            min-width: 320px;
-        }
-        section {
-            background-color: #fff;
-            padding: 32px;
-            border-radius: 16px;
-            margin-bottom: 24px;
-            box-shadow: 0 0 16px rgba(1, 247, 255, 0.5);
-        }
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px 32px;
-        }
-        .form-grid > div {
-            display: flex;
-            flex-direction: column;
-        }
-        h1.login-title {
-            color: #fff;
-            text-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7, 0 0 40px #00fff7;
-            background: #00bcd4;
-            text-align: center;
-            border-radius: 8px;
-            padding: 8px 0;
-            margin-bottom: 16px;
-            grid-column: 1 / -1;
-        }
-        label, input, textarea, button, select {
-            font-size: 1.1em;
-            font-family: Arial, sans-serif;
-        }
-        label {
-            margin-bottom: 4px;
-            color: #015e6b;
-        }
-        input[type="text"], input[type="date"], input[type="number"], input[type="tel"], textarea, select {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 16px;
-            border: 1px solid #b2ebf2;
-            border-radius: 6px;
-            box-sizing: border-box;
-            background: #f7feff;
-        }
-        input[type="radio"], input[type="checkbox"] {
-            width: auto;
-            margin-right: 8px;
-        }
-        .radio-group, .radio-inline {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-        button {
-            background-color: aqua;
-            color: #fff;
-            text-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7, 0 0 40px #00fff7;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 6px;
-            cursor: pointer;
-            display: block;
-            margin: 24px auto 0 auto;
-        }
-        /* Increase the size of the textbox and its text */
-        input[type="text"] {
-            width: 100%;
-            height: 40px;
-            font-size: 18px;
-            padding: 8px;
-        }
-        /* Make deceased section full width */
-        #deceasedFields {
-            grid-column: 1 / -1;
-        }
-        @media (max-width: 700px) {
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
+<?php include 'head.php'; ?>
 <body>
     
-    <form action="HIV_+ve_siblings.php" method="post">
-        <section>
-            <h1 class="login-title">Siblings Information</h1>
-            <label for="siblings_no">Siblings No:</label>
-            <input type="number" id="siblings_no" name="siblings_no" min="0"><br>
+<form action="HIV_+ve_siblings.php" method="post">
+  <section class="form-container">
+    <h1 class="form-title">Siblings Information</h1>
 
-            <label for="first_name">First Name:</label>
-            <input type="text" id="first_name" name="first_name"><br>
+    <div class="form-grid">
+      <div>
+        <label for="siblings_no">Siblings No:</label>
+        <input type="number" id="siblings_no" name="siblings_no" min="0" required>
+      </div>
 
-            <label for="last_name">Last Name:</label>
-            <input type="text" id="last_name" name="last_name"><br>
+      <div>
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" required>
+      </div>
 
-            <label for="age">Age:</label>
-            <input type="number" id="age" name="age" min="0"><br>
+      <div>
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name" required>
+      </div>
 
-            <label for="sibling_sex">Sex:</label>
-            <select id="sibling_sex" name="sibling_sex">
-                <option value="">Select</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-            </select><br>
-        </section>
-        <button type="submit">Submit</button>
-    </form>
+      <div>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="0" required>
+      </div>
+
+      <div>
+        <label for="sibling_sex">Sex:</label>
+        <select id="sibling_sex" name="sibling_sex" required>
+          <option value="">Select</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+    </div>
+
+    <button type="submit">Submit</button>
+  </section>
+</form>
+
 </body>

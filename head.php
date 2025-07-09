@@ -23,6 +23,12 @@
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
+    .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
     .form-title {
       color: #fff;
             text-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7, 0 0 40px #00fff7;
@@ -67,8 +73,9 @@
     }
 
     button {
-      margin-top: 20px;
-      width: 100%;
+      margin: 20px auto 0; /* top auto bottom */
+      display: block;      /* make it block-level so margin auto works */
+      width: 50%;
       padding: 12px;
       background-color: #007BFF;
       color: white;
@@ -77,6 +84,7 @@
       font-size: 16px;
       cursor: pointer;
     }
+
 
     button:hover {
       background-color: #0056b3;
