@@ -25,30 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Add Drug</title>
-  <style>
-    body { font-family: Arial; padding: 30px; background: #f7f9fc; }
-    .form-container {
-      max-width: 400px;
-      margin: auto;
-      background: white;
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    label, input, button { width: 100%; margin-top: 10px; }
-    button {
-      background: #28a745;
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    button:hover { background: #218838; }
-  </style>
-</head>
+<?php include 'head.php'; ?>
 <body>
   <div class="form-container">
     <h2>Add New Drug</h2>

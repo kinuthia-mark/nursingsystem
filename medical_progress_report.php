@@ -50,90 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Medical Progress Report</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f6fa;
-      padding: 30px;
-    }
-
-    .form-container {
-      max-width: 1200px;
-      margin: auto;
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 25px;
-    }
-
-    .form-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .column {
-      flex: 1;
-      min-width: 300px;
-    }
-
-    .form-group {
-      margin-bottom: 15px;
-    }
-
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
-    input[type="text"],
-    input[type="number"],
-    input[type="date"],
-    textarea,
-    select {
-      width: 100%;
-      padding: 10px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      box-sizing: border-box;
-    }
-
-    textarea {
-      resize: vertical;
-    }
-
-    button {
-      margin-top: 20px;
-      width: 100%;
-      padding: 12px;
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #0056b3;
-    }
-
-    @media (max-width: 768px) {
-      .form-row {
-        flex-direction: column;
-      }
-    }
-  </style>
-</head>
+<?php include 'head.php'; ?>
 <body>
 
 <div class="form-container">
@@ -142,7 +59,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="form-row">
       <!-- COLUMN 1 -->
       <div class="column">
-        <div class="form-group"><label>Report Date</label><input type="date" name="report_date"></div>
+        
+        <div class="form-group">
+          <label>Report Date</label>
+          <input type="date" name="report_date">
+        </div>
+
+
+
+
         <div class="form-group"><label>School</label><input type="text" name="school"></div>
         <div class="form-group"><label>Problems Since Last Review</label><textarea name="problems_last_review"></textarea></div>
         <div class="form-group"><label>Adherence</label><input type="text" name="adherence"></div>

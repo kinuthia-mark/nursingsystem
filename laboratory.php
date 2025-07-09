@@ -106,7 +106,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       border-radius: 6px;
       box-sizing: border-box;
     }
-
     button {
       width: 100%;
       padding: 12px;
@@ -130,6 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <div class="form-container">
     <h2>Laboratory Results Form</h2>
     <form action="laboratory.php" method="post">
+      
       <div class="form-group">
         <label for="testDate">Test Date</label>
         <input type="date" id="testDate" name="testDate">
