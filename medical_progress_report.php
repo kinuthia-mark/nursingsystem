@@ -47,116 +47,160 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'head.php'; ?>
+  <?php include 'head.php'; ?>
 <body>
-
-<div class="form-container">
-  <h2>Medical Progress Report</h2>
-  <form action="medical_progress_report.php" method="post">
-    <div class="form-row">
-      <!-- COLUMN 1 -->
-      <div class="column">
+  <div class="form-container">
+    <h1 class="form-title">Medical Progress Report</h1>
+    <form action="medical_progress_report.php" method="post">
+      <div class="row g-3">
+        <!-- COLUMN 1 -->
+        <div class="col-md-6">
+          <!-- Place all the first column fields here -->
+          <div class="form-group">
+            <label>Report Date</label>
+            <input type="date" name="report_date" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>School</label>
+            <input type="text" name="school" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Problems Since Last Review</label>
+            <textarea name="problems_last_review" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Adherence</label>
+            <input type="text" name="adherence" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Missed Doses (Per Week/Month)</label>
+            <input type="text" name="missed_doses" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Counselling on Adherence</label>
+            <input type="text" name="counselling_on_adherence" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Present Problems</label>
+            <textarea name="present_problems" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <label>ARV Therapy</label>
+            <input type="text" name="arv_therapy" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Date Started</label>
+            <input type="date" name="date_started" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Age at Start of Therapy</label>
+            <input type="number" name="age_at_start" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Duration of Therapy (auto)</label>
+            <input type="text" name="duration_therapy" readonly class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Current Drugs</label>
+            <input type="text" name="current_drugs" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Weight (kg)</label>
+            <input type="number" name="weight" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Height (cm)</label>
+            <input type="number" name="height" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Z-Score</label>
+            <input type="text" name="z_score" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>BMI (auto)</label>
+            <input type="text" name="bmi" readonly class="form-control">
+          </div>
+          <div class="form-group"><label>Pallor</label><input type="text" name="pallor" class="form-control"></div>
+          <div class="form-group"><label>Jaundice</label><input type="text" name="jaundice" class="form-control"></div>
+          <div class="form-group"><label>Cyanosis</label><input type="text" name="cyanosis" class="form-control"></div>
+          <div class="form-group"><label>Clubbing</label><input type="text" name="clubbing" class="form-control"></div>
+          <div class="form-group"><label>Oedema</label><input type="text" name="oedema" class="form-control"></div>
+          <div class="form-group"><label>Wasting</label><input type="text" name="wasting" class="form-control"></div>
+          <div class="form-group"><label>Parotids</label><input type="text" name="parotids" class="form-control"></div>
+          <div class="form-group"><label>Lymph Nodes</label><input type="text" name="lymph_nodes" class="form-control"></div>
+          <div class="form-group"><label>Eyes</label><input type="text" name="eyes" class="form-control"></div>
+          <div class="form-group"><label>Ears Discharge</label><input type="text" name="ears_discharge" class="form-control"></div>
+          <div class="form-group"><label>Hearing Test</label><input type="text" name="hearing_test" class="form-control"></div>
+          <div class="form-group"><label>Throat</label><input type="text" name="throat" class="form-control"></div>
         
-        <div class="form-group">
-          <label>Report Date</label>
-          <input type="date" name="report_date">
+
+        
+          <div class="form-group"><label>Mouth</label><input type="text" name="mouth" class="form-control"></div>
+          <div class="form-group"><label>Thrush</label><input type="text" name="thrush" class="form-control"></div>
+          <div class="form-group"><label>Ulcers</label><input type="text" name="ulcers" class="form-control"></div>
+          <div class="form-group"><label>Teeth</label><input type="text" name="teeth" class="form-control"></div>
+          <div class="form-group"><label>Describe Teeth</label><textarea name="describe_teeth" class="form-control"></textarea></div>
+          <div class="form-group"><label>Skin</label><input type="text" name="skin" class="form-control"></div>
+          <div class="form-group"><label>Describe Skin</label><textarea name="describe_skin" class="form-control"></textarea></div>
+          <div class="form-group"><label>Normal Respiratory System</label><input type="text" name="normal_rs" class="form-control"></div>
+          <div class="form-group"><label>RS Rate per min</label><input type="number" name="rs_rate" class="form-control"></div>
+          <div class="form-group"><label>Recession</label><input type="text" name="recession" class="form-control"></div>
+          <div class="form-group"><label>Percussion</label><input type="text" name="percussion" class="form-control"></div>
+          <div class="form-group"><label>Breath Sounds</label><input type="text" name="breath_sounds" class="form-control"></div>
+         </div>
+         
+
+
+          <!-- COLUMN 2 -->
+        <div class="col-md-6">
+          <div class="form-group"><label>Creps</label><input type="text" name="creps" class="form-control"></div>
+          <div class="form-group"><label>Rhonchi</label><input type="text" name="rhonchi" class="form-control"></div>
+          <div class="form-group"><label>State Location</label><input type="text" name="state_location" class="form-control"></div>
+          <div class="form-group"><label>Normal CVS</label><input type="text" name="normal_cvs" class="form-control"></div>
+          <div class="form-group"><label>CVS Rate</label><input type="number" name="cvs_rate" class="form-control"></div>
+          <div class="form-group"><label>Apex</label><input type="text" name="apex" class="form-control"></div>
+          <div class="form-group"><label>Precordium</label><input type="text" name="precordium" class="form-control"></div>
+          <div class="form-group"><label>Normal Heart Sounds</label><input type="text" name="heart_sounds" class="form-control"></div>
+          <div class="form-group"><label>Murmurs</label><input type="text" name="murmurs" class="form-control"></div>
+          <div class="form-group"><label>Describe</label><textarea name="describe_heart" class="form-control"></textarea></div>
+          <div class="form-group"><label>Abdomen Normal</label><input type="text" name="abdomen_normal" class="form-control"></div>
+          <div class="form-group"><label>Gas</label><input type="text" name="gas" class="form-control"></div>
+          <div class="form-group"><label>Ascites</label><input type="text" name="ascites" class="form-control"></div>
+          <div class="form-group"><label>Masses</label><input type="text" name="masses" class="form-control"></div>
+
+          <div class="form-group"><label>Describe Abdomen</label><textarea name="describe_abdomen" class="form-control"></textarea></div>
+          <div class="form-group"><label>Liver (cm)</label><input type="number" name="liver_cm" class="form-control"></div>
+          <div class="form-group"><label>Spleen (cm)</label><input type="number" name="spleen_cm" class="form-control"></div>
+          <div class="form-group"><label>Normal CNS</label><input type="text" name="normal_cns" class="form-control"></div>
+          <div class="form-group"><label>Tone</label><input type="text" name="tone" class="form-control"></div>
+          <div class="form-group"><label>Tendon Reflexes</label><input type="text" name="tendon_reflexes" class="form-control"></div>
+          <div class="form-group"><label>Affected Parts</label><input type="text" name="affected_parts" class="form-control"></div>
+          <div class="form-group"><label>Joints</label><input type="text" name="joints" class="form-control"></div>
+          <div class="form-group"><label>Describe Joints</label><textarea name="describe_joints" class="form-control"></textarea></div>
+          <strong>Development</strong>
+          <div class="form-group"><label>Motor</label><input type="text" name="motor" class="form-control"></div>
+          <div class="form-group"><label>Sexual (Tanner Stage)</label><input type="text" name="tanner_stage" class="form-control"></div>
+          <div class="form-group"><label>Summary of Noted Problems</label><textarea name="summary" class="form-control" maxlength="255"></textarea></div>
+          <div class="form-group"><label>Clinical</label><input type="text" name="clinical" class="form-control"></div>
+          <div class="form-group"><label>Immunological</label><input type="text" name="immunological" class="form-control"></div>
+          <div class="form-group"><label>Other Lab Findings</label><input type="text" name="other_lab" class="form-control"></div>
+          <div class="form-group"><label>Plan</label><textarea name="plan" class="form-control" maxlength="255"></textarea></div>
+          <div class="form-group"><label>Lab</label><input type="text" name="lab" class="form-control"></div>
+          <div class="form-group"><label>X-ray / Imaging</label><input type="text" name="xray" class="form-control"></div>
+          <div class="form-group"><label>Adjust ARV Dosage</label><input type="text" name="adjust_arv" class="form-control"></div>
+          <div class="form-group"><label>Change ARV</label><input type="text" name="change_arv" class="form-control"></div>
+          <div class="form-group"><label>Additional Drugs</label><input type="text" name="additional_drugs" class="form-control"></div>
+          <div class="form-group"><label>Refer</label><input type="text" name="refer" class="form-control"></div>
+          <div class="form-group"><label>Clinician Name</label><input type="text" name="clinician_name" class="form-control"></div>
         </div>
-
-
-
-
-        <div class="form-group"><label>School</label><input type="text" name="school"></div>
-        <div class="form-group"><label>Problems Since Last Review</label><textarea name="problems_last_review"></textarea></div>
-        <div class="form-group"><label>Adherence</label><input type="text" name="adherence"></div>
-        <div class="form-group"><label>Missed Doses (Per Week/Month)</label><input type="text" name="missed_doses"></div>
-        <div class="form-group"><label>Counselling on Adherence</label><input type="text" name="counselling_on_adherence"></div>
-        <div class="form-group"><label>Present Problems</label><textarea name="present_problems"></textarea></div>
-        <div class="form-group"><label>ARV Therapy</label><input type="text" name="arv_therapy"></div>
-        <div class="form-group"><label>Date Started</label><input type="date" name="date_started"></div>
-        <div class="form-group"><label>Age at Start of Therapy</label><input type="number" name="age_at_start"></div>
-        <div class="form-group"><label>Duration of Therapy (auto)</label><input type="text" name="duration_therapy" readonly></div>
-        <div class="form-group"><label>Current Drugs</label><input type="text" name="current_drugs"></div>
-        <div class="form-group"><label>Weight (kg)</label><input type="number" name="weight"></div>
-        <div class="form-group"><label>Height (cm)</label><input type="number" name="height"></div>
-        <div class="form-group"><label>Z-Score</label><input type="text" name="z_score"></div>
-        <div class="form-group"><label>BMI (auto)</label><input type="text" name="bmi" readonly></div>
-        <div class="form-group"><label>Pallor</label><input type="text" name="pallor"></div>
-        <div class="form-group"><label>Jaundice</label><input type="text" name="jaundice"></div>
-        <div class="form-group"><label>Cyanosis</label><input type="text" name="cyanosis"></div>
-        <div class="form-group"><label>Clubbing</label><input type="text" name="clubbing"></div>
-        <div class="form-group"><label>Oedema</label><input type="text" name="oedema"></div>
-        <div class="form-group"><label>Wasting</label><input type="text" name="wasting"></div>
-        <div class="form-group"><label>Parotids</label><input type="text" name="parotids"></div>
-        <div class="form-group"><label>Lymph Nodes</label><input type="text" name="lymph_nodes"></div>
-        <div class="form-group"><label>Eyes</label><input type="text" name="eyes"></div>
-        <div class="form-group"><label>Ears Discharge</label><input type="text" name="ears_discharge"></div>
-        <div class="form-group"><label>Hearing Test</label><input type="text" name="hearing_test"></div>
-        <div class="form-group"><label>Throat</label><input type="text" name="throat"></div>
-        <div class="form-group"><label>Mouth</label><input type="text" name="mouth"></div>
-        <div class="form-group"><label>Thrush</label><input type="text" name="thrush"></div>
-        <div class="form-group"><label>Ulcers</label><input type="text" name="ulcers"></div>
-        <div class="form-group"><label>Teeth</label><input type="text" name="teeth"></div>
-        <div class="form-group"><label>Describe Teeth</label><textarea name="describe_teeth"></textarea></div>
-        <div class="form-group"><label>Skin</label><input type="text" name="skin"></div>
-        <div class="form-group"><label>Describe Skin</label><textarea name="describe_skin"></textarea></div>
-        <div class="form-group"><label>Normal Respiratory System</label><input type="text" name="normal_rs"></div>
-        <div class="form-group"><label>RS Rate per min</label><input type="number" name="rs_rate"></div>
-        <div class="form-group"><label>Recession</label><input type="text" name="recession"></div>
-        <div class="form-group"><label>Percussion</label><input type="text" name="percussion"></div>
-        <div class="form-group"><label>Breath Sounds</label><input type="text" name="breath_sounds"></div>
       </div>
+      <button type="submit" class="btn btn-primary">Submit Medical Report</button>
+    </form>
+  </div>
 
-      <!-- COLUMN 2 -->
-      <div class="column">
-        <div class="form-group"><label>Creps</label><input type="text" name="creps"></div>
-        <div class="form-group"><label>Rhonchi</label><input type="text" name="rhonchi"></div>
-        <div class="form-group"><label>State Location</label><input type="text" name="state_location"></div>
-        <div class="form-group"><label>Normal CVS</label><input type="text" name="normal_cvs"></div>
-        <div class="form-group"><label>CVS Rate</label><input type="number" name="cvs_rate"></div>
-        <div class="form-group"><label>Apex</label><input type="text" name="apex"></div>
-        <div class="form-group"><label>Precordium</label><input type="text" name="precordium"></div>
-        <div class="form-group"><label>Normal Heart Sounds</label><input type="text" name="heart_sounds"></div>
-        <div class="form-group"><label>Murmurs</label><input type="text" name="murmurs"></div>
-        <div class="form-group"><label>Describe</label><textarea name="describe_heart"></textarea></div>
-        <div class="form-group"><label>Abdomen Normal</label><input type="text" name="abdomen_normal"></div>
-        <div class="form-group"><label>Gas</label><input type="text" name="gas"></div>
-        <div class="form-group"><label>Ascites</label><input type="text" name="ascites"></div>
-        <div class="form-group"><label>Masses</label><input type="text" name="masses"></div>
-        <div class="form-group"><label>Describe Abdomen</label><textarea name="describe_abdomen"></textarea></div>
-        <div class="form-group"><label>Liver (cm)</label><input type="number" name="liver_cm"></div>
-        <div class="form-group"><label>Spleen (cm)</label><input type="number" name="spleen_cm"></div>
-        <div class="form-group"><label>Normal CNS</label><input type="text" name="normal_cns"></div>
-        <div class="form-group"><label>Tone</label><input type="text" name="tone"></div>
-        <div class="form-group"><label>Tendon Reflexes</label><input type="text" name="tendon_reflexes"></div>
-        <div class="form-group"><label>Affected Parts</label><input type="text" name="affected_parts"></div>
-        <div class="form-group"><label>Joints</label><input type="text" name="joints"></div>
-        <div class="form-group"><label>Describe Joints</label><textarea name="describe_joints"></textarea></div>
-        <strong> Development</strong> <br>
-        <div class="form-group"><label>Motor</label><input type="text" name="motor"></div>
-        <div class="form-group"><label>Sexual (Tanner Stage)</label><input type="text" name="tanner_stage"></div>
-        <div class="form-group"><label>Summary of Noted Problems</label><textarea name="summary" maxlength="255"></textarea></div>
-        <div class="form-group"><label>Clinical</label><input type="text" name="clinical"></div>
-        <div class="form-group"><label>Immunological</label><input type="text" name="immunological"></div>
-        <div class="form-group"><label>Other Lab Findings</label><input type="text" name="other_lab"></div>
-        <div class="form-group"><label>Plan</label><textarea name="plan" maxlength="255"></textarea></div>
-        <div class="form-group"><label>Lab</label><input type="text" name="lab"></div>
-        <div class="form-group"><label>X-ray / Imaging</label><input type="text" name="xray"></div>
-        <div class="form-group"><label>Adjust ARV Dosage</label><input type="text" name="adjust_arv"></div>
-        <div class="form-group"><label>Change ARV</label><input type="text" name="change_arv"></div>
-        <div class="form-group"><label>Additional Drugs</label><input type="text" name="additional_drugs"></div>
-        <div class="form-group"><label>Refer</label><input type="text" name="refer"></div>
-        <div class="form-group"><label>Clinician Name</label><input type="text" name="clinician_name"></div>
-      </div>
-    </div>
-
-    <button type="submit">Submit Medical Report</button>
-  </form>
-</div>
-
-<script>
+  <script>
   // Function to calculate BMI
   function calculateBMI() {
     const weight = parseFloat(document.querySelector('input[name="weight"]').value);
@@ -208,5 +252,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     startDateField.addEventListener("change", calculateDuration);
   });
 </script>
+
 </body>
 </html>

@@ -38,60 +38,7 @@ while ($row = $result->fetch_assoc()) {
 
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title>ARV Therapy</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f7fa;
-      padding: 30px;
-    }
-
-    .form-container {
-      max-width: 600px;
-      margin: auto;
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    label {
-      display: block;
-      margin-top: 10px;
-      font-weight: bold;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-
-    button {
-      margin-top: 20px;
-      padding: 12px;
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #0056b3;
-    }
-
-    .top-right-link {
-      text-align: right;
-      margin-bottom: 10px;
-    }
-  </style>
-</head>
+<?php include 'head.php'; ?>
 <body>
 
 <div class="form-container">

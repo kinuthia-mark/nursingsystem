@@ -28,7 +28,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php include 'head.php'; ?>
 <body>
   <div class="form-container">
-    <h2>Add New Drug</h2>
+    <h1 class="form-title" style="text-align: center;">Add New Drug</h1>
+
     <form method="post">
       <label>Drug Name</label>
       <input type="text" name="drug_name" required>

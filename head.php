@@ -81,5 +81,9 @@
     button:hover {
       background-color: #0056b3;
     }
+    .top-right-link {
+      text-align: right;
+      margin-bottom: 10px;
+    }
   </style>
 </head>

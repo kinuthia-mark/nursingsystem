@@ -25,69 +25,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>HIV Test Form</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f8f9fa;
-      padding: 40px;
-    }
-
-    .form-container {
-      max-width: 500px;
-      margin: auto;
-      background-color: #fff;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .form-group {
-      margin-bottom: 15px;
-    }
-
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 6px;
-    }
-
-    input[type="text"],
-    input[type="date"],
-    input[type="number"] {
-      width: 100%;
-      padding: 10px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      background-color: #28a745;
-      color: white;
-      font-size: 16px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #218838;
-    }
-  </style>
-</head>
+<?php include 'head.php'; ?>
 <body>
 
   <div class="form-container">
-    <h2>HIV Test Form</h2>
+    <h1 class="form-title" style="text-align: center;">HIV Test Form</h1>
+
     <form action="hiv_test.php" method="post">
       <div class="form-group">
         <label for="test_no">Test Number</label>

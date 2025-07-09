@@ -29,87 +29,12 @@ $conn->close();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Vaccination Form</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #eef3f9;
-      padding: 40px;
-    }
-
-    .form-container {
-      max-width: 500px;
-      margin: auto;
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .form-group {
-      margin-bottom: 15px;
-    }
-
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
-    input[type="text"],
-    input[type="date"],
-    select {
-      width: 100%;
-      padding: 10px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      box-sizing: border-box;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #0056b3;
-    }
-
-    .top-right-link {
-      text-align: right;
-      margin-bottom: 10px;
-    }
-
-    .top-right-link a {
-      font-size: 14px;
-      text-decoration: none;
-      color: #007BFF;
-    }
-
-    .top-right-link a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
+<html>
+  <?php include 'head.php'; ?>
 <body>
 
 <div class="form-container">
-  <h2>Vaccination Form</h2>
-
+<h1 class="form-title" style="text-align: center;">Vaccination Form</h1>
   <div class="top-right-link">
     <a href="add_vaccine.php" target="_blank">➕ Add New Vaccine</a>
   </div>
