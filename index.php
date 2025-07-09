@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <?php include 'head.php';  ?>
+  <?php include 'dash_head.php';  ?>
   <body class="app sidebar-mini">
     <?php include 'sidenav.php';  ?>    
     <main class="app-content">
@@ -28,7 +28,7 @@
           <div class="widget-small info coloured-icon"><i class="icon fa fa-thumbs-o-up fa-3x"></i>
             <div class="info">
               <h6>Active Children</h6>
-              <a href="active_auctions.php">
+              <a href="#">
               <p><b>
               
                      

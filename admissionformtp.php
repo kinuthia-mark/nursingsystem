@@ -110,6 +110,9 @@ ini_set('display_errors', 1);
 <?php include 'head.php'; ?>
 
     <body>
+
+    <?php include 'sidenav.php'; ?>
+
         <form action="admissionformtp.php" method="post" class="form-container">
   <h1 class="form-title">Admission Form</h1>
 
