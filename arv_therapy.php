@@ -38,102 +38,66 @@ while ($row = $result->fetch_assoc()) {
 
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title>ARV Therapy</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f7fa;
-      padding: 30px;
-    }
-
-    .form-container {
-      max-width: 600px;
-      margin: auto;
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    label {
-      display: block;
-      margin-top: 10px;
-      font-weight: bold;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-
-    button {
-      margin-top: 20px;
-      padding: 12px;
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #0056b3;
-    }
-
-    .top-right-link {
-      text-align: right;
-      margin-bottom: 10px;
-    }
-  </style>
-</head>
+<?php include 'head.php'; ?>
 <body>
 
-<div class="form-container">
-  <div class="top-right-link">
-    <a href="add_drug.php" target="_blank">➕ Add New Drug</a>
+  <div class="form-container">
+    <h1 class="form-title" style="text-align: center;">ARV Therapy Form</h1>
+
+    <div class="top-right-link">
+      <a href="add_drug.php" target="_blank">➕ Add New Drug</a>
+    </div>
+
+    <form action="arv_therapy.php" method="post">
+      
+      <div class="form-group">
+        <label for="drug_1">Drug 1</label>
+        <select name="drug_1" id="drug_1" required>
+          <option value="">-- Select Drug --</option>
+          <?= $drugOptions ?>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="drug_2">Drug 2</label>
+        <select name="drug_2" id="drug_2" required>
+          <option value="">-- Select Drug --</option>
+          <?= $drugOptions ?>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="drug_3">Drug 3</label>
+        <select name="drug_3" id="drug_3" required>
+          <option value="">-- Select Drug --</option>
+          <?= $drugOptions ?>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="date_started">Date Started</label>
+        <input type="date" id="date_started" name="date_started" required>
+      </div>
+
+      <div class="form-group">
+        <label for="date_stopped">Date Stopped</label>
+        <input type="date" id="date_stopped" name="date_stopped">
+      </div>
+
+      <div class="form-group">
+        <label for="reason">Reason for Stopping</label>
+        <textarea id="reason" name="reason"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="regimen">Regimen</label>
+        <input type="text" id="regimen" name="regimen" required>
+      </div>
+
+      <button type="submit">Submit ARV Therapy</button>
+    </form>
   </div>
 
-  <h2>ARV Therapy Form</h2>
-  <form action="arv_therapy.php" method="post">
-    <label for="drug_1">Drug 1</label>
-    <select name="drug_1" id="drug_1" required>
-      <option value="">-- Select Drug --</option>
-      <?= $drugOptions ?>
-    </select>
-
-    <label for="drug_2">Drug 2</label>
-    <select name="drug_2" id="drug_2" required>
-      <option value="">-- Select Drug --</option>
-      <?= $drugOptions ?>
-    </select>
-
-    <label for="drug_3">Drug 3</label>
-    <select name="drug_3" id="drug_3" required>
-      <option value="">-- Select Drug --</option>
-      <?= $drugOptions ?>
-    </select>
-
-    <label for="date_started">Date Started</label>
-    <input type="date" id="date_started" name="date_started" required>
-
-    <label for="date_stopped">Date Stopped</label>
-    <input type="date" id="date_stopped" name="date_stopped">
-
-    <label for="reason">Reason for Stopping</label>
-    <textarea id="reason" name="reason"></textarea>
-
-    <label for="regimen">Regimen</label>
-    <input type="text" id="regimen" name="regimen" required>
-
-    <button type="submit">Submit ARV Therapy</button>
-  </form>
-</div>
-
 </body>
+
 </html>

@@ -23,57 +23,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Add Vaccine</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f6fa;
-      padding: 40px;
-    }
-    .form-container {
-      max-width: 400px;
-      margin: auto;
-      background: #fff;
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    h3 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    label, input {
-      display: block;
-      width: 100%;
-    }
-    input[type="text"] {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-    button {
-      padding: 10px;
-      width: 100%;
-      background: #007BFF;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
-  </style>
-</head>
+<html>
+<?php include 'head.php'; ?>
+
 <body>
   <div class="form-container">
-    <h3>Add Vaccine Name</h3>
+    <h1 class="form-title" style="text-align: center;">Add Vaccine Name</h1>
     <form action="" method="post">
       <div class="form-group">
         <label for="vaccine_name">Vaccine Name</label>

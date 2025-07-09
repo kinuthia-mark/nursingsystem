@@ -61,138 +61,74 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Laboratory Form</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f1f5f9;
-      padding: 40px;
-    }
-
-    .form-container {
-      max-width: 600px;
-      margin: auto;
-      background-color: #ffffff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 25px;
-      color: #333;
-    }
-
-    .form-group {
-      margin-bottom: 15px;
-    }
-
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 5px;
-      color: #444;
-    }
-
-    input[type="text"],
-    input[type="number"],
-    input[type="date"] {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      box-sizing: border-box;
-    }
-    button {
-      width: 100%;
-      padding: 12px;
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 20px;
-    }
-
-    button:hover {
-      background-color: #0056b3;
-    }
-
-  </style>
-</head>
+<?php include 'head.php'; ?>
 <body>
-
   <div class="form-container">
-    <h2>Laboratory Results Form</h2>
+    <h1 class="form-title">Laboratory Results Form</h1>
     <form action="laboratory.php" method="post">
       
       <div class="form-group">
         <label for="testDate">Test Date</label>
-        <input type="date" id="testDate" name="testDate">
+        <input type="date" id="testDate" name="testDate" class="form-control">
       </div>
 
       <div class="form-group">
         <label for="cd4Count">CD4 Count</label>
-        <input type="number" id="cd4Count" name="cd4Count">
+        <input type="number" id="cd4Count" name="cd4Count" class="form-control">
       </div>
 
       <div class="form-group">
         <label for="cd4Perc">CD4 Percentage</label>
-        <input type="number" step="0.1" id="cd4Perc" name="cd4Perc">
+        <input type="number" step="0.1" id="cd4Perc" name="cd4Perc" class="form-control">
       </div>
 
       <div class="form-group">
         <label for="viralLoad">Viral Load</label>
-        <input type="number" id="viralLoad" name="viralLoad">
+        <input type="number" id="viralLoad" name="viralLoad" class="form-control">
       </div>
 
       <div class="form-group">
         <label for="hb">HB</label>
-        <input type="number" step="0.1" id="hb" name="hb">
+        <input type="number" step="0.1" id="hb" name="hb" class="form-control">
       </div>
 
       <div class="form-group">
         <label for="ast">AST</label>
-        <input type="number" id="ast" name="ast">
+        <input type="number" id="ast" name="ast" class="form-control">
       </div>
 
       <div class="form-group">
         <label for="alt">ALT</label>
-        <input type="number" id="alt" name="alt">
+        <input type="number" id="alt" name="alt" class="form-control">
       </div>
 
       <div class="form-group">
         <label for="trigly">Total Triglycerides</label>
-        <input type="number" id="trigly" name="trigly">
+        <input type="number" id="trigly" name="trigly" class="form-control">
       </div>
 
       <div class="form-group">
         <label for="cholest">Total Cholesterol</label>
-        <input type="number" id="cholest" name="cholest">
+        <input type="number" id="cholest" name="cholest" class="form-control">
       </div>
 
       <div class="form-group">
         <label for="ldl">LDL</label>
-        <input type="number" id="ldl" name="ldl">
+        <input type="number" id="ldl" name="ldl" class="form-control">
       </div>
 
       <div class="form-group">
         <label for="hdl">HDL</label>
-        <input type="number" id="hdl" name="hdl">
+        <input type="number" id="hdl" name="hdl" class="form-control">
       </div>
 
       <div class="form-group">
         <label for="creat">Creatinine</label>
-        <input type="number" id="creat" name="creat">
+        <input type="number" id="creat" name="creat" class="form-control">
       </div>
 
-      <button type="submit">Submit Results</button>
+      <button type="submit" class="btn btn-primary">Submit Results</button>
     </form>
   </div>
-
 </body>
 </html>
