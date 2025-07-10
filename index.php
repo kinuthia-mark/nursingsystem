@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <?php include 'dash_head.php';  ?>
+  <?php include 'head.php';  ?>
   <body class="app sidebar-mini">
     <?php include 'sidenav.php';  ?>    
     <main class="app-content">
