@@ -7,32 +7,39 @@ $error = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $username = $_POST["username"];
   $password = $_POST["password"];
-  $role = $_POST["role"];
 
-  $stmt = $conn->prepare("SELECT id, fullname, password FROM users WHERE username = ? AND role = ?");
-  $stmt->bind_param("ss", $username, $role);
+  // Andaa statement bila password
+  $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
+  $stmt->bind_param("s", $username);
   $stmt->execute();
   $result = $stmt->get_result();
 
   if ($result->num_rows === 1) {
     $user = $result->fetch_assoc();
+
+    // Verify password
     if (password_verify($password, $user['password'])) {
+      // Login success - set session
       $_SESSION["user_id"] = $user["id"];
+      $_SESSION["username"] = $user["username"];
       $_SESSION["fullname"] = $user["fullname"];
-      $_SESSION["role"] = $role;
-      header("Location: dashboard.php"); // Replace with your dashboard
+      $_SESSION["role"] = $user["role"]; // Assuming 'role' column exists in DB
+
+      header("Location: index.php"); // Redirect to dashboard
       exit();
     } else {
       $error = "Invalid password.";
     }
   } else {
-    $error = "User not found or role mismatch.";
+    $error = "User not found.";
   }
 
   $stmt->close();
   $conn->close();
 }
+
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -52,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="password" name="password" id="password" class="form-control" required>
       </div>
 
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label>Role:</label>
         <div class="form-check">
           <input class="form-check-input" type="radio" name="role" id="admin" value="Admin" required>
@@ -66,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <input class="form-check-input" type="radio" name="role" id="socialWorker" value="Doctor">
           <label class="form-check-label" for="socialWorker">Social Worker</label>
         </div>
-      </div>
+      </div> -->
 
       <button type="submit" class="btn btn-primary">Login</button>
 

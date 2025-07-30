@@ -26,7 +26,8 @@
       <div class="app-sidebar__user">
         <img class="app-sidebar__user-avatar" src="images/user.png" width="20%" height="20%" alt="User Image">
         <div>
-          <p class="app-sidebar__user-name">User:<?php ;?>      </p>
+          <p class="app-sidebar__user-name">User:<?php echo $_SESSION["username"]; ?>
+          </p>
           <p class="app-sidebar__user-designation">
 
   
