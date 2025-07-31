@@ -3,6 +3,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+include 'session.php'; // Ensure user is logged in
+//include database connection
 include 'dbconnect.php';
 
 //SUBMIT FORM

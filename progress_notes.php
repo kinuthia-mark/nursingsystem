@@ -1,8 +1,11 @@
 <?php
+//error reporting
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+//include session to ensure user is logged in
+include 'session.php';
 //include database connection
 include 'dbconnect.php';
 

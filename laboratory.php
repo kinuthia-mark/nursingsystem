@@ -1,4 +1,5 @@
 <?php
+include 'session.php'; // Ensure user is logged in
 include 'dbconnect.php'; // include your database connection
 
 //error_reporting(E_ALL);

@@ -1,4 +1,5 @@
 <?php
+include 'session.php'; // Ensure user is logged in
 include 'dbconnect.php';
 
 // Check if form is submitted
