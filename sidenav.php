@@ -1,3 +1,9 @@
+<?php
+//session start 
+include 'session.php'; // Ensure user is logged in
+include 'dbconnect.php'; // include your database connection
+?>
+
 <!-- Navbar-->
     <header class="app-header"><a class="app-header__logo" href="index.php" style="background-color:rgb(41, 129, 216); color: white; font-family:veltica; font-size:130%">N-DBMS</a>
      <a class="app-sidebar__toggle" style="background-color:rgb(41, 129, 216);" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>

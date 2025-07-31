@@ -1,7 +1,4 @@
 <?php
-// session.php
-include 'session.php';
-// dbconnect.php
 include 'dbconnect.php';
 
 error_reporting(E_ALL);
