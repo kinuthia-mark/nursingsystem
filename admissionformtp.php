@@ -1,4 +1,6 @@
 <?php
+//session.php
+include 'session.php';
 //include database connection
 include 'dbconnect.php';
 

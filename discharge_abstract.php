@@ -1,4 +1,7 @@
 <?php
+// session.php
+include 'session.php';
+
 //include 'db_connection.php'; // Include your database connection file
 include 'dbconnect.php'; 
 
