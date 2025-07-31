@@ -1,4 +1,7 @@
 <?php
+// session.php
+include 'session.php';
+// dbconnect.php
 include 'dbconnect.php';
 
 // Check if form is submitted

@@ -1,5 +1,9 @@
 <?php
+// session.php
+include 'session.php';
+// dbconnect.php
 include 'dbconnect.php';
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $test_no     = $_POST['test_no'];

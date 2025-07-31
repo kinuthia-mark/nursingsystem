@@ -1,4 +1,6 @@
 <?php
+// session.php
+include 'session.php';
 include 'dbconnect.php'; // include your database connection
 
 //error_reporting(E_ALL);

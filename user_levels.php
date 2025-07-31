@@ -2,7 +2,9 @@
 //ERROR REPORTING
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
+// session.php
+include 'session.php';
+// dbconnect.php  
 include 'dbconnect.php';
 
 //SUBMIT FORM
