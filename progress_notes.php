@@ -47,6 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php include 'head.php'; ?>
 
 <body>
+  <?php include 'sidenav.php'; ?>
     <form method="POST" action="" class="form-container">
   <section>
     <h1 class="form-title">Progress Notes</h1>

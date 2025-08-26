@@ -49,7 +49,17 @@ include 'dbconnect.php'; // include your database connection
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-plus"></i><span class="app-menu__label">Register Management</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
 
-            <li  ><a class="treeview-item" href="admissionformtp.php"><i class="icon fa fa-circle-o"></i> Children Register</a></li> 
+            <li  ><a class="treeview-item" href="admissionformtp.php"><i class="icon fa fa-circle-o"></i> Children Register</a></li>
+            <li  ><a class="treeview-item" href="add_drug.php"><i class="icon fa fa-circle-o"></i> add drug</a></li>
+            <li  ><a class="treeview-item" href="add_vaccine.php"><i class="icon fa fa-circle-o"></i> add vaccine</a></li>
+            <li  ><a class="treeview-item" href="arv_therapy.php"><i class="icon fa fa-circle-o"></i> add allergy</a></li>
+            <li  ><a class="treeview-item" href="discharge_abstract.php"><i class="icon fa fa-circle-o"></i> discharge abstract</a></li>
+            <li  ><a class="treeview-item" href="HIV_+ve_siblings.php"><i class="icon fa fa-circle-o"></i> HIV +ve siblings</a></li>
+            <li  ><a class="treeview-item" href="hiv_test.php"><i class="icon fa fa-circle-o"></i> HIV test</a></li>
+            <li  ><a class="treeview-item" href="laboratory.php"><i class="icon fa fa-circle-o"></i> laboratory</a></li>
+            
+            
+            
           </ul>
         </li>       
 
@@ -64,15 +74,15 @@ include 'dbconnect.php'; // include your database connection
 
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Reports</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="#"><i class="icon fa fa-users"></i>Report 1</a></li>
-            <li><a class="treeview-item" href="#"><i class="icon fa fa-gear"></i>Report 2</a></li>           
+            <li><a class="treeview-item" href="medical_progress_report.php"><i class="icon fa fa-users"></i>medical progress report</a></li>
+            <li><a class="treeview-item" href=""><i class="icon fa fa-gear"></i>Report 2</a></li>           
           </ul>
         </li> 
 
 
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-wrench"></i><span class="app-menu__label">Settings</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
-              <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>Company Registration</a></li>
+              <li><a class="treeview-item" href="user_register.php"><i class="icon fa fa-circle-o"></i>Company Registration</a></li>
               <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>Client's Admin Register</a></li>        
             </ul>
         </li>

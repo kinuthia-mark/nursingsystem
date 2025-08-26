@@ -65,6 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
 <?php include 'head.php'; ?>
 <body>
+  <?php include 'sidenav.php'; ?>
   <div class="form-container">
     <h1 class="form-title">Laboratory Results Form</h1>
     <form action="laboratory.php" method="post">

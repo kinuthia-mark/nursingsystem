@@ -38,6 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <?php include 'head.php'; ?>
 <body>
+  <?php include 'sidenav.php'; ?>
    <form action="discharge_abstract.php" method="POST">
   <section class="form-container">
     <h1 class="form-title">Discharge Abstract</h1>

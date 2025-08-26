@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php include 'head.php'; ?>
 <body>
 
-
+<?php include 'sidenav.php'; ?>
 
     <div class="form-container">
   <form method="POST" action="">

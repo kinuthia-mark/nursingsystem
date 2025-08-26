@@ -1,11 +1,13 @@
 <?php
-//session start
+// Start session safely
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
-session_start();
-include 'dbconnect.php';
+require_once 'dbconnect.php';
+
+// Redirect if user not logged in
 if (!isset($_SESSION["username"])) {
     header("Location: login.php");
     exit();
 }
-
-?>

@@ -41,6 +41,7 @@ $conn->close();
 <html lang="en">
 <?php include 'head.php'; ?>
 <body>
+  <?php include 'sidenav.php'; ?>
   <div class="form-container">
     <h1 class="form-title">User Registration Form</h1>
     

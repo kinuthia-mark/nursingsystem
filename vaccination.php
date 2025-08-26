@@ -35,7 +35,7 @@ $conn->close();
 <html>
   <?php include 'head.php'; ?>
 <body>
-
+<?php include 'sidenav.php'; ?>
 <div class="form-container">
 <h1 class="form-title" style="text-align: center;">Vaccination Form</h1>
   <div class="top-right-link">

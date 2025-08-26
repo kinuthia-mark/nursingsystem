@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <?php include 'head.php'; ?>
 <body>
-    
+<?php include 'sidenav.php'; ?>
 <form action="HIV_+ve_siblings.php" method="post">
   <section class="form-container">
     <h1 class="form-title">Siblings Information</h1>

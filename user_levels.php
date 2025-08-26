@@ -41,6 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <?php include 'head.php'; ?>
 <body>
+  <?php include 'sidenav.php'; ?>
   <div class="form-container">
     <h1 class="form-title">User Levels Form</h1>
 

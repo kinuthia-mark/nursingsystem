@@ -43,7 +43,7 @@ while ($row = $result->fetch_assoc()) {
 <html>
 <?php include 'head.php'; ?>
 <body>
-
+<?php include 'sidenav.php'; ?>
   <div class="form-container">
     <h1 class="form-title" style="text-align: center;">ARV Therapy Form</h1>
 

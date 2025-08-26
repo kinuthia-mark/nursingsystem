@@ -26,8 +26,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html>
-<?php include 'head.php'; ?>
+<?php include 'head.php'; ?> 
+<?php include 'sidenav.php'; ?>
 <body>
+
   <div class="form-container">
     <h1 class="form-title" style="text-align: center;">Add New Drug</h1>
 
