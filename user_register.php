@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $check_stmt->store_result();
 
         if ($check_stmt->num_rows > 0) {
-            $message = "Username or Email already exists in the system.";
+            $message = "Username or Email already exists.";
             $messageType = "danger";
         } else {
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -56,130 +56,149 @@ if (isset($_GET['success'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>N-DBMS | Staff Registration</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
+<?php include 'head.php'; ?>
+<style>
+    /* CRITICAL FIX: Ensures inputs fill the box and look professional */
+    .registration-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+    .form-group label {
+        display: block;
+        font-weight: 600;
+        color: #475569;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+    }
+    .custom-input {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        transition: border-color 0.2s;
+    }
+    .custom-input:focus {
+        border-color: #3b82f6;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+    @media (max-width: 768px) {
+        .registration-grid { grid-template-columns: 1fr; }
+    }
+</style>
 <body>
 
-    <div class="dashboard-container">
-        <?php include 'sidenav.php'; ?>
+<div class="dashboard-container">
+    <?php include 'sidenav.php'; ?>
 
-        <main class="main-content">
-            <header class="top-bar">
-                <div class="page-title-area">
-                    <h2 style="font-weight: 700; color: var(--text-main); margin: 0;">User Management</h2>
-                    <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">System / Add New Staff</p>
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="search-placeholder"></div> 
+            <div class="header-right">
+                <div class="live-clock">
+                    <i class="fa-regular fa-clock"></i>
+                    <span id="digital-clock">00:00:00</span>
                 </div>
+            </div>
+        </header>
 
-                <div class="header-right">
-                    <div class="live-clock">
-                        <i class="fa-regular fa-clock"></i>
-                        <span id="digital-clock">00:00:00</span>
+        <div class="scroll-area">
+            <section class="content-header" style="margin-bottom: 2rem;">
+                <h1 style="font-size: 1.75rem; color: #0f172a;">Staff Management</h1>
+                <p style="color: #64748b;">Create and manage system credentials for personnel.</p>
+            </section>
+
+            <?php if ($message): ?>
+                <div class="alert alert-<?= $messageType; ?> shadow-sm mb-4" style="padding: 1rem; border-radius: 12px; background: <?= $messageType == 'success' ? '#f0fdf4' : '#fef2f2' ?>; border: 1px solid <?= $messageType == 'success' ? '#bbf7d0' : '#fecaca' ?>; color: <?= $messageType == 'success' ? '#166534' : '#991b1b' ?>;">
+                    <i class="fa-solid <?= $messageType == 'success' ? 'fa-circle-check' : 'fa-triangle-exclamation' ?> me-2"></i>
+                    <?= $message; ?>
+                </div>
+            <?php endif; ?>
+
+            <div class="data-layout">
+                <div class="panel" style="width: 100%; max-width: 1000px; background: #fff; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+                    <div class="panel-header" style="padding: 1.5rem; border-bottom: 1px solid #e2e8f0;">
+                        <h3 style="margin:0; font-size: 1.1rem; font-weight: 700; color: #1e293b;"><i class="fa-solid fa-user-plus me-2" style="color: #3b82f6;"></i>Registration Form</h3>
                     </div>
-                </div>
-            </header>
-
-            <div class="scroll-area">
-                <div class="content-header">
-                    <div class="header-text">
-                        <h1>Staff Registration</h1>
-                        <p>Create credentials for new medical or administrative personnel.</p>
-                    </div>
-                </div>
-
-                <div class="form-card" style="background: white; padding: 30px; border-radius: 16px; box-shadow: var(--card-shadow); max-width: 1000px;">
                     
-                    <?php if ($message): ?>
-                        <div class="alert alert-<?= $messageType; ?>" style="margin-bottom: 25px; padding: 15px; border-radius: 12px; border-left: 5px solid <?= $messageType == 'success' ? '#10b981' : '#ef4444' ?>; background: <?= $messageType == 'success' ? '#ecfdf5' : '#fef2f2' ?>; color: <?= $messageType == 'success' ? '#065f46' : '#991b1b' ?>;">
-                            <i class="fa-solid <?= $messageType == 'success' ? 'fa-circle-check' : 'fa-triangle-exclamation' ?>" style="margin-right: 10px;"></i>
-                            <?= $message; ?>
-                        </div>
-                    <?php endif; ?>
-
-                    <form method="POST">
-                        <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
-                            
-                            <div class="form-column">
-                                <div class="form-group" style="margin-bottom: 20px;">
-                                    <label style="display:block; font-weight:600; margin-bottom:8px; font-size:0.9rem;">Full Name</label>
-                                    <input type="text" name="fullname" class="form-control" placeholder="e.g. Dr. Jane Smith" required style="width:100%; padding:12px; border:1px solid #e2e8f0; border-radius:8px;">
+                    <div style="padding: 2.5rem;">
+                        <form method="POST">
+                            <div class="registration-grid">
+                                <div>
+                                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                                        <label>Full Name</label>
+                                        <input type="text" name="fullname" class="custom-input" placeholder="e.g. Dr. Jane Smith" required>
+                                    </div>
+                                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                                        <label>Username</label>
+                                        <input type="text" name="username" class="custom-input" placeholder="jsmith_nurse" required>
+                                    </div>
+                                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                                        <label>Email Address</label>
+                                        <input type="email" name="email" class="custom-input" placeholder="jane@clinic.com" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Phone Number</label>
+                                        <input type="tel" name="phone" class="custom-input" placeholder="+254..." required>
+                                    </div>
                                 </div>
 
-                                <div class="form-group" style="margin-bottom: 20px;">
-                                    <label style="display:block; font-weight:600; margin-bottom:8px; font-size:0.9rem;">Username</label>
-                                    <input type="text" name="username" class="form-control" placeholder="jsmith_nurse" required style="width:100%; padding:12px; border:1px solid #e2e8f0; border-radius:8px;">
-                                </div>
-
-                                <div class="form-group" style="margin-bottom: 20px;">
-                                    <label style="display:block; font-weight:600; margin-bottom:8px; font-size:0.9rem;">Email Address</label>
-                                    <input type="email" name="email" class="form-control" placeholder="jane.smith@nurseflow.com" required style="width:100%; padding:12px; border:1px solid #e2e8f0; border-radius:8px;">
-                                </div>
-
-                                <div class="form-group" style="margin-bottom: 20px;">
-                                    <label style="display:block; font-weight:600; margin-bottom:8px; font-size:0.9rem;">Phone Number</label>
-                                    <input type="tel" name="phone" class="form-control" placeholder="+254..." required style="width:100%; padding:12px; border:1px solid #e2e8f0; border-radius:8px;">
-                                </div>
-                            </div>
-
-                            <div class="form-column">
-                                <div class="form-group" style="margin-bottom: 20px;">
-                                    <label style="display:block; font-weight:600; margin-bottom:8px; font-size:0.9rem;">Gender Identity</label>
-                                    <select name="gender" class="form-control" required style="width:100%; padding:12px; border:1px solid #e2e8f0; border-radius:8px;">
-                                        <option value="">--Select Gender--</option>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group" style="margin-bottom: 20px;">
-                                    <label style="display:block; font-weight:600; margin-bottom:8px; font-size:0.9rem;">System Role</label>
-                                    <select name="role" class="form-control" required style="width:100%; padding:12px; border:1px solid #e2e8f0; border-radius:8px;">
-                                        <option value="">--Select Role--</option>
-                                        <option value="Admin">Administrator</option>
-                                        <option value="Nurse">Registered Nurse</option>
-                                        <option value="Social Worker">Social Worker</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group" style="margin-bottom: 20px;">
-                                    <label style="display:block; font-weight:600; margin-bottom:8px; font-size:0.9rem;">Security Password</label>
-                                    <input type="password" name="password" class="form-control" required style="width:100%; padding:12px; border:1px solid #e2e8f0; border-radius:8px;">
-                                </div>
-
-                                <div class="form-group" style="margin-bottom: 20px;">
-                                    <label style="display:block; font-weight:600; margin-bottom:8px; font-size:0.9rem;">Confirm Password</label>
-                                    <input type="password" name="confirmPassword" class="form-control" required style="width:100%; padding:12px; border:1px solid #e2e8f0; border-radius:8px;">
+                                <div>
+                                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                                        <label>Gender</label>
+                                        <select name="gender" class="custom-input" required>
+                                            <option value="">--Select--</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                                        <label>System Role</label>
+                                        <select name="role" class="custom-input" required>
+                                            <option value="">--Select Role--</option>
+                                            <?php
+                                            $role_query = $conn->query("SELECT userlevelname FROM user_level ORDER BY userlevelname ASC");
+                                            while($row = $role_query->fetch_assoc()): ?>
+                                                <option value="<?= $row['userlevelname'] ?>"><?= $row['userlevelname'] ?></option>
+                                            <?php endwhile; ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                                        <label>Password</label>
+                                        <input type="password" name="password" class="custom-input" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Confirm Password</label>
+                                        <input type="password" name="confirmPassword" class="custom-input" required>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="form-actions" style="margin-top: 30px; display: flex; gap: 15px; justify-content: flex-end;">
-                            <button type="reset" class="btn-secondary" style="padding: 12px 25px; cursor: pointer; border-radius: 8px; border: 1px solid #e2e8f0; background: #f8fafc; font-weight: 600;">
-                                <i class="fa-solid fa-rotate-left"></i> Clear Fields
-                            </button>
-                            <button type="submit" class="btn-primary" style="padding: 12px 30px; cursor: pointer; border-radius: 8px; border: none; background: var(--primary); color: white; font-weight: 600; box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);">
-                                <i class="fa-solid fa-user-plus"></i> Register Staff Member
-                            </button>
-                        </div>
-                    </form>
+                            <div style="margin-top: 3rem; display: flex; justify-content: flex-end; gap: 1rem; border-top: 1px solid #e2e8f0; padding-top: 1.5rem;">
+                                <button type="reset" class="btn-light" style="padding: 12px 24px; border-radius: 8px; border: 1px solid #cbd5e1; background: #f8fafc; font-weight: 600; cursor: pointer;">
+                                    <i class="fa-solid fa-rotate-left me-1"></i> Clear Fields
+                                </button>
+                                <button type="submit" class="btn-primary" style="padding: 12px 40px; border-radius: 8px; border: none; background: #2563eb; color: white; font-weight: 700; cursor: pointer; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);">
+                                    <i class="fa-solid fa-user-plus me-1"></i> Register Staff Member
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div> 
-        </main>
-    </div>
+            </div>
+        </div>
+    </main>
+</div>
 
-    <script>
-        // Keeping your clock script for consistency
-        function updateClock() {
-            const now = new Date();
-            document.getElementById('digital-clock').textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-        }
-        setInterval(updateClock, 1000);
-        updateClock();
-    </script>
+<script>
+    function runClock() {
+        const el = document.getElementById('digital-clock');
+        if (el) el.textContent = new Date().toLocaleTimeString('en-GB');
+    }
+    setInterval(runClock, 1000);
+    runClock();
+</script>
+
 </body>
 </html>
